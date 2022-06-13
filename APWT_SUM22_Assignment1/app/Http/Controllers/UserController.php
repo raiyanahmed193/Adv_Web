@@ -37,7 +37,18 @@ class UserController extends Controller
 
     ]
       );
-       return $req->input();
+
+      $check = Member::where([
+          ['email','=', $req->email],
+          ['password','=', $req->password]
+      ])->first();
+
+      if($check)
+      {
+        return redirect()->route('dashboard');
+      }
+      return redirect()->route('login');
+       
 
    }
 
