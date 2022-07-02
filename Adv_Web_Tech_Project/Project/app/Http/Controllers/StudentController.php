@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\mail;
 use App\Models\Application;
 use App\Models\Student;
 use App\Models\Feedback;
+use App\Models\Teacherfeedback;
+use App\Models\Tutor;
+use App\Models\TeacherReview;
 use App\Mail\NotifyMail;
 use PHPUnit\Framework\MockObject\Builder\Stub;
 
@@ -199,7 +202,10 @@ function sendMail()
 
     function editprofile()
     {
+        
+         
         return view('student.editprofile');
+       
     }
 
     function profileupdate(Request $reg)
@@ -262,6 +268,48 @@ function sendMail()
      {
          return view('student.about');
      }
+
+     function teacherlist()
+     {
+        $Tutors = Tutor::all();
+        return view('student.teacherlist')
+               ->with('Tutors',$Tutors);
+     }
+
+     function tutor($id)
+     {
+        $Tutors = Tutor::where('tutor_id',$id)->first();
+         
+        return view('student.tutor')
+        ->with('Tutors',$Tutors);
+     }
+
+     function teacherfeedback(Request $reg)
+    {
+        $this->validate($reg,
+        [
+            'student_id'=>'required',
+            'tutor_id'=>'required',
+            'tutor_name'=>'required',
+            'feedback'=>'required',
+            'rating'=>'required',
+            
+            
+       
+        ],
+       
+          );
+          
+           $feed = new TeacherReview();
+           $feed->student_id=$reg->student_id;
+           $feed->tutor_id=$reg->tutor_id;
+           $feed->tutor_name=$reg->tutor_name;
+           $feed->feedback=$reg->feedback;
+           $feed->rating=$reg->rating;
+           $feed->save();
+           session()->flash('msg','Review Done');
+           return back();
+    }
 
 }
 

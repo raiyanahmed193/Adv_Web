@@ -67,6 +67,9 @@ Student---------Raiyan
     Route::get('/review',[StudentController::class,'review'])->name('student.review');
     Route::get('/contact',[StudentController::class,'contact'])->name('student.contact');
     Route::get('/about',[StudentController::class,'about'])->name('student.about');
+    Route::get('/teacherlist',[StudentController::class,'teacherlist'])->name('student.teacherlist')->middleware('auth.user');
+    Route::get('/tutor/{id}/{name}',[StudentController::class,'tutor'])->name('student.tutor')->middleware('auth.user');
+    Route::post('/teacherfeedback',[StudentController::class,'teacherfeedback']);
     
 
 

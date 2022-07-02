@@ -3,7 +3,7 @@
 <center>
     <hr>
     <h1>
- Profile
+ Edit Profile
     </h1>
 </hr>
 
