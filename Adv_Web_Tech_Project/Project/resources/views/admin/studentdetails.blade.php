@@ -1,7 +1,8 @@
 @extends('layout.main2')
 @section('content')
 <h1 align='center'>Show Details</h1>
-Name:{{$student->name}}<br><br>
-Id: {{$student->id}}<br><br>
-Email: {{$student->email}}<br><br>
+Id: {{$Student->student_id}}<br><br>
+Name:{{$Student->name}}<br><br>
+Email:{{$Student->email}}<br><br>
+
 @endsection

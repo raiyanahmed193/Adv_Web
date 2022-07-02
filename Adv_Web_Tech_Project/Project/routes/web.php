@@ -99,4 +99,4 @@ Route::get('/admin',[AdminController::class,'Home'])->name('root');
 Route::get('/teacherdetails',[AdminController::class,'tlist'])->name('Tutor.list');
 Route::get('/tdetails/{id}/{name}/{email}',[AdminController::class,'tutor'])->name('Tutor.teacherdetails');
 Route::get('/studentdetails',[AdminController::class,'slist'])->name('Student.list');
-Route::get('/sdetails/{id}/{name}/{email}/{phone}',[AdminController::class,'student'])->name('Student.studentdetails');
+Route::get('/sdetails/{id}/{name}/{email}',[AdminController::class,'student'])->name('Student.studentdetails');

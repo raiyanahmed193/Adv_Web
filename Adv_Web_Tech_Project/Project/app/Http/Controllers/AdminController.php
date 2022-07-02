@@ -30,7 +30,7 @@ class AdminController extends Controller
      }
      function student($id){
 
-        $Students = Student::where('id',$id)->first();
+        $Students = Student::where('student_id',$id)->first();
          
          return view('admin.studentdetails')
          ->with('Student',$Students);
