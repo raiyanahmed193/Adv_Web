@@ -11,7 +11,7 @@
 <form action="/teacherfeedback" method="POST">
     @csrf 
     <label>Student Id :</label><br>
-    <input type="text" name="student_id" value={{Session()->get('id')}}> <br>
+    <input type="text" name="student_id" readonly value={{Session()->get('id')}}> <br>
     @error('student_id')
         <span style="color:red">{{$message}}</span>
         @enderror<br><br>

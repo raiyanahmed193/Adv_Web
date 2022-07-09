@@ -151,7 +151,6 @@ function sendMail()
     
      ]
        );
-       
         $app = new Application();
         $app->name=$reg->name;
         $app->subject=$reg->subject;
@@ -159,6 +158,7 @@ function sendMail()
         $app->location=$reg->location;
         $app->salary=$reg->salary;
         $app->Time=$reg->Time;
+        $app->cond='r';
         $app->save();
         session()->flash('msg','Post Successfull');
         return back();
@@ -238,7 +238,6 @@ function sendMail()
     'desc'=>$reg->desc,'password'=>$reg->password]);
 
     session()->put('user',$reg->username);
-    session()->put('id',$reg->student_id);
     session()->put('name',$reg->name);
     session()->put('phone',$reg->phone);
     session()->put('email',$reg->email);

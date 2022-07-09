@@ -15,11 +15,16 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->integer('app_id')->autoIncrement();
-            $table->string('name', 100);
+            $table->integer('teacher_id');
+            $table->integer('student_id');
             $table->string('subject', 50);
-            $table->integer('days/week');
+            $table->integer('days_week');
             $table->string('location', 150);
             $table->integer('salary');
+            $table->time('time');
+            $table->string('cond',5);
+    
+            
         });
     }
 

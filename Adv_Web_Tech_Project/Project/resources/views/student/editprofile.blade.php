@@ -30,7 +30,7 @@
     @error('address')
         <span style="color:red">{{$message}}</span><br>
         @enderror<br>
-        <input type="text" name="desc" value={{Session()->get('desc')}} ><br> <br>
+        <input type="text" name="desc" value="{{Session()->get('desc')}}" ><br> <br>
     @error('desc')
         <span style="color:red">{{$message}}</span><br>
         @enderror<br> 

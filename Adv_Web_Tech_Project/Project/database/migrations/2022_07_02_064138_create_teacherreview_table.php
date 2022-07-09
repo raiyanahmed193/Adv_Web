@@ -14,6 +14,7 @@ class CreateTeacherreviewTable extends Migration
     public function up()
     {
         Schema::create('teacherreviews', function (Blueprint $table) {
+            $table->id('no')->autoIncrement();
             $table->integer('student_id',50);
             $table->integer('tutor_id',50);
             $table->string('tutorname',100);

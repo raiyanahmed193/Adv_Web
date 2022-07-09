@@ -10,11 +10,11 @@
 <h4>{{Session::get('msg')}}</h4>
 <form action="/addfeedback" method="POST">
     @csrf 
-    <input type="text" name="username" value={{Session()->get('user')}}> <br>
+    <input type="text" name="username" readonly value={{Session()->get('user')}}> <br>
     @error('username')
         <span style="color:red">{{$message}}</span>
         @enderror<br><br>
-    <textarea name="feedback">Write Your Feedback Here !</textarea><br>
+    <textarea name="feedback" placeholder="Write Your Feedback Here !"></textarea><br>
     @error('feedback')
         <span style="color:red">{{$message}}</span>
         @enderror<br><br>
